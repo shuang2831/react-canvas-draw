@@ -414,7 +414,9 @@ export default class extends PureComponent {
     const height = this.canvas.temp.height;
 
     // Copy the line to the drawing canvas
-    this.ctx.drawing.drawImage(this.canvas.temp, 0, 0, width, height);
+    if (width > 0 && height > 0) {
+      this.ctx.drawing.drawImage(this.canvas.temp, 0, 0, width, height);
+    }
 
     // Clear the temporary line-drawing canvas
     this.ctx.temp.clearRect(0, 0, width, height);
